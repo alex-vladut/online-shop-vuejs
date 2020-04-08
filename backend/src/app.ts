@@ -16,6 +16,7 @@ import middleware from './middleware';
 import services from './services';
 import appHooks from './app.hooks';
 import channels from './channels';
+import mongoose from './mongoose';
 // Don't remove this comment. It's needed to format import lines nicely.
 
 const app: Application = express(feathers());
@@ -36,6 +37,8 @@ app.use('/', express.static(app.get('public')));
 app.configure(express.rest());
 app.configure(socketio());
 
+app.configure(mongoose);
+
 // Configure other middleware (see `middleware/index.js`)
 app.configure(middleware);
 // Set up our services (see `services/index.js`)
@@ -50,5 +53,6 @@ app.use(express.errorHandler({ logger } as any));
 app.hooks(appHooks);
 
 app.set('port', 3002);
+app.set('mongodb', 27017);
 
 export default app;

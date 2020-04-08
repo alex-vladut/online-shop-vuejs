@@ -28,7 +28,8 @@
     "dev": "ts-node-dev --no-notify src/",
     "start": "npm run compile && node lib/",
     "jest": "jest  --forceExit",
-    "compile": "shx rm -rf lib/ && tsc"
+    "compile": "shx rm -rf lib/ && tsc",
+    "mongodb:up": "docker run -p 27017:27017 mongo"
   },
   "standard": {
     "env": [
@@ -46,7 +47,10 @@
     "@feathersjs/transport-commons": "^4.5.2",
     "compression": "^1.7.4",
     "cors": "^2.8.5",
+    "feathers-mongoose": "^8.3.0",
     "helmet": "^3.22.0",
+    "mongodb-core": "^3.2.7",
+    "mongoose": "^5.9.7",
     "serve-favicon": "^2.5.0",
     "winston": "^3.2.1"
   },
@@ -55,6 +59,7 @@
     "@types/cors": "^2.8.6",
     "@types/helmet": "0.0.45",
     "@types/jest": "^25.2.1",
+    "@types/mongoose": "^5.7.8",
     "@types/serve-favicon": "^2.5.0",
     "axios": "^0.19.2",
     "jest": "^25.2.7",
